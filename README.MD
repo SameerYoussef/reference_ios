@@ -29,6 +29,8 @@ Test results are displayed using [XCTestHTMLReport](https://github.com/TitouanVa
 1. Install XCTestHTMLReport following the [instructions](XCTestHTMLReport)
 2. Run `bundle exec fastlane test_ui` from the command line 
 
+![ios_tests](https://user-images.githubusercontent.com/18099038/89146738-b0768200-d5a8-11ea-8740-9a4b98fa52a5.gif)
+
 ## Future work
 
 - [ ] Tear down and recreate simulators for stability
