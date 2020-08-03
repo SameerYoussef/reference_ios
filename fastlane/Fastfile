@@ -29,6 +29,8 @@ platform :ios do
   desc "Run UI tests"
   lane :test_ui do
     scan(scheme: "ReferenceiOSUITests")
+    xchtmlreport
+    sh('open test_output/index.html')
   end
 
   desc "Build the app"
