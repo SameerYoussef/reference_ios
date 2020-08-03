@@ -1,27 +1,35 @@
-# Test assignment
+# Unbiased Employee Salary Decision App
 
-We are looking for Automation Engineers that have the mindset "only the sky is the limit" and "automation doesn't stop at testing, it's just a beginning!" ;)
+Has your company ever been accused of pay inequality between people of different genders, races, disabilities etc?
 
-The purpose of this test assignment is to assess the applicant's automation skills, allowing him/her to show the best they can do and how fast they can learn.
-It is an open assignment. There is no the right answer and there is no end goal other than proving yourself. Surprise us!
+Even basing an employees salary on their experience and experience could land you in trouble!
 
-Make sure that you give detailed comments or descriptions of your tests.
-When the assignment is complete, please push your solution to Github(Gitlab) and send us the link to hr.grid.adi@nl.abnamro.com.
-If you have any questions, please contact us at hr.grid.adi@nl.abnamro.com.
+Simply pass this app to your employees and let random numbers decide their yearly salary. No more fuss!
 
-Good luck.
+# Automation Testing
 
-PS. We don't expect you to spend weeks (and sleepless nights) on doing it. Lets see how far you can get in 6-10 hours. We want to see how you approach and solve problems.
+## Test case style
 
-PSPS. Please use mobile native tools.
+The test follows the 'Customer Journey' of a typical user. The benefit of this approach is that only valuable tests are written - no writing tests for the sake of tests - only testing valuable customer flows. This requires some careful thinking of how users are likely to interact with the app in an end-to-end fashion as it is detailed in the test comment. This includes the naming of the class and method.
 
+The tests are written in Swift to provide a clean and pleasurable reading and coding experience.
 
-## Project set-up
+For the purpose of this exercise the tests are contained in one file (for ease of review via Github). To keep the test method clean I have factored out the screen elements, actions and assertions into a separate screen class. 
 
-### Gemfile
+Within the test method you will find the text that the user will actually see - this copy is not to be hidden in screen classes. This allows the test reader to see exactly what the user will be reading
 
-This file specifies which Ruby dependencies (gems) are needed for our app.
+Assertions are done on UI elements to ensure they exist in the DOM and they are hittable.  This is avoid issues with existing but hidden elements.
 
-### fastlane/Fastfile
+In order to ensure the amounts displayed were in range and correctly formatted I have included a range checker and I used a regular expression to assert the currency format with locale of Netherlands Dutch. I've also included a check to ensure numbers are different each time for demonstration purposes.  In order to clearly log which interation of the loop I am in I used XCTest's runActivity method to print to the pretty UI output.
 
-This is where tha magic happens.
+## Executing the test(s)
+
+Test results are displayed using [XCTestHTMLReport](https://github.com/TitouanVanBelle/XCTestHTMLReport) which allows command line run tests to output a html report that looks similar to what you would see inside of Xcode.
+
+1. Install XCTestHTMLReport following the [instructions](XCTestHTMLReport)
+2. Run `bundle exec fastlane test_ui` from the command line 
+
+## Future work
+
+- [ ] Tear down and recreate simulators for stability
+- [ ] Set up Jenkins instance to run as part of CI
