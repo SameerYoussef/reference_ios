@@ -1,3 +1,4 @@
 DerivedData/
-ReferenceiOS.xcodeproj/project.xcworkspace/xcuserdata/
-
+**/xcuserdata
+fastlane/test_output/
+fastlane/report.xml
